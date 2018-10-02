@@ -6,7 +6,7 @@ class GamesController < ActionController::API
   end
 
   def score_board
-    render json: Game.best_players, include: ['top_score']
+    render json: Game.high_scores, include: ['player']
   end
 
   def show 
