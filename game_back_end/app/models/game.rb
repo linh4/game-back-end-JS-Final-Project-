@@ -3,15 +3,20 @@ class Game < ApplicationRecord
 
   def self.high_scores
     # *WARNING: sorts wrong!!!
-    highest_scores = Game.all.sort{|a, b|
-    b.highest_level <=> a.highest_level}.take(10)
+    if Game.all.size < 2
+      Game.all.first
+    else
+      # byebug
+      size = Game.all.length < 10 ? Game.all.length : 10
+      Game.order(highest_level: :desc).select{|game| !game.highest_level.nil?}
+    end
   end
 
-  def is_high_score_game? 
-    Game.high_score
+  def is_high_score_game?
+    Game.high_scores
   end
   # *FIX: has a weird affect upon how it sorts look into this
-  # def self.best_players 
+  # def self.best_players
   #   high_scores.map!{|score| score.player}.take(10)
   # end
 end
