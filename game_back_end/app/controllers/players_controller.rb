@@ -24,6 +24,8 @@ class PlayersController < ActionController::API
   #     end
   # end
 
+  # POST to 'http://localhost:3000/players/make' something like this {name: "Name", highest_level: 3}
+  # it should return a player and game object
   def create_both 
     @player = Player.new(player_params)
       if @player.save
