@@ -8,7 +8,7 @@ class Game < ApplicationRecord
     else
       # byebug
       size = Game.all.length < 10 ? Game.all.length : 10
-      Game.order(highest_level: :desc).select{|game| !game.highest_level.nil?}
+      Game.order(highest_level: :desc).select{|game| !game.highest_level.nil?}.take(10)
     end
   end
 
