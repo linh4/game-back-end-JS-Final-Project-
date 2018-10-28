@@ -9,3 +9,5 @@
 ### Future Plans:
 - User can change timer
 - User can choose different modes
+
+### [Front-end-page](https://github.com/linh4/tic-tap-tone-front-end)
