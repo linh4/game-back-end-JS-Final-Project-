@@ -12,11 +12,8 @@
 
 ActiveRecord::Schema.define(version: 2018_10_01_160150) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "games", force: :cascade do |t|
-    t.bigint "player_id"
+    t.integer "player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "highest_level", default: 1
@@ -29,5 +26,4 @@ ActiveRecord::Schema.define(version: 2018_10_01_160150) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "games", "players"
 end

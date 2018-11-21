@@ -2,6 +2,7 @@ class Game < ApplicationRecord
   belongs_to :player
 
   def self.high_scores
+    # *WARNING: sorts wrong!!!
     if Game.all.size < 2
       Game.all.first
     else
