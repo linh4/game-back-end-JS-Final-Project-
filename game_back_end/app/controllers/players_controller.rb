@@ -29,7 +29,6 @@ class PlayersController < ActionController::API
   def create_both
     @player = Player.new(name: player_params[:name])
       if @player.valid?
-        # byebug
         @player.save
         @player.games << Game.create!(player_id: @player.id, highest_level: params[:highest_level])
         render json: @player, include: ['games']
